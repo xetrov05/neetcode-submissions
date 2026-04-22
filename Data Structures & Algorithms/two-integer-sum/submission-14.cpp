@@ -1,0 +1,15 @@
+#include<unordered_map>
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        std::unordered_map<int,int> seen;
+        for(int i = 0; i < nums.size(); i++){
+            if(seen.find(target-nums[i])!=seen.end()){
+                cout << seen[target-nums[i]] ;
+                return {seen[target-nums[i]] , i};
+            }
+            seen[nums[i]] = i;
+        }
+        return {0};
+    }
+};
